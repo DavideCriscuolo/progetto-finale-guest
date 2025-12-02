@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 export default function GamePage() {
   const [game, setGame] = useState([]);
+  const [load, setLoad] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
@@ -10,7 +11,8 @@ export default function GamePage() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setLoad(false);
+
         setGame(data.data);
       })
       .catch((err) => {
@@ -19,11 +21,16 @@ export default function GamePage() {
   }, [id]);
 
   const date = new Date(game.date);
-  console.log(game);
-  console.log();
+
+  console.log(game.plattforms);
 
   return (
     <main>
+      {load && (
+        <div className="position-absolute z-3 bg-white">
+          <h1 className="text-black">Loading</h1>
+        </div>
+      )}
       <div className="container">
         <div className="row">
           <div className="col d-flex">
@@ -37,7 +44,11 @@ export default function GamePage() {
                 <div class="card-body">
                   <h4 class="card-title">{game.title}</h4>
                   <span className="badge bg-danger">{game.category?.name}</span>
-
+                  {game.plattforms?.map((plat) => {
+                    return (
+                      <span className="badge bg-success">{plat.name}</span>
+                    );
+                  })}
                   <p class="card-text">{game.plot}</p>
                   <ul className="list-unstyled">
                     <li class="card-text">Casa Editrice: {game.editor}</li>
@@ -45,7 +56,7 @@ export default function GamePage() {
                       Classificazione: {game.classification}
                     </li>
                     <li class="card-text">
-                      Prezzo d'acquisto consigliato: {game.lirice}€
+                      Prezzo d'acquisto consigliato: {game.price}€
                     </li>
                     <li class="card-text">
                       Anno D'uscita: {date.getFullYear()}
