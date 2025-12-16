@@ -1,3 +1,4 @@
+import FooterC from "../components/FooterC";
 import HeaderC from "../components/HeadrC";
 import { Outlet } from "react-router-dom";
 export default function defaultLayout() {
@@ -5,6 +6,7 @@ export default function defaultLayout() {
     <>
       <HeaderC></HeaderC>
       <Outlet></Outlet>
+      <FooterC></FooterC>
     </>
   );
 }

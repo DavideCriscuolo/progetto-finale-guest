@@ -1,0 +1,21 @@
+.containerImg {
+  height: 400px;
+}
+
+body {
+  background-color: #0c0e12;
+}
+.card {
+  color: white;
+}
+.card-img-overlay {
+  background-color: rgba(0, 0, 0, 0.506);
+  transition: all 0.8s;
+}
+.spinner-border {
+  height: 200px;
+  width: 200px;
+}
+main {
+  color: white;
+}

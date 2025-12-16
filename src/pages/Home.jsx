@@ -1,6 +1,11 @@
+import JumboC from "../components/JumboC";
 import MainHome from "../components/MainHome";
 
-MainHome;
 export default function Home() {
-  return <MainHome></MainHome>;
+  return (
+    <>
+      <JumboC></JumboC>
+      <MainHome></MainHome>{" "}
+    </>
+  );
 }
