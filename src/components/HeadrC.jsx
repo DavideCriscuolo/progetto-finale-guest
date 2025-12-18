@@ -7,7 +7,7 @@ export default function HeaderC() {
         <div className="container">
           <a className="navbar-brand" href="/">
             <i className="bi bi-controller brand-icon me-2"></i>
-            <span className="brand-text">GameStore</span>
+            <span className="brand-text">GameHub</span>
           </a>
 
           <button
