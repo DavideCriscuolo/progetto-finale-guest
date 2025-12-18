@@ -1,17 +1,17 @@
 export default function JumboC() {
   return (
     <>
-      <div class="p-5 mb-4 bg-light rounded-3">
-        <div class="container-fluid py-5">
-          <h1 class="display-5 fw-bold">Custom jumbotron</h1>
-          <p class="col-md-8 fs-4">
-            Using a series of utilities, you can create this jumbotron, just
-            like the one in previous versions of Bootstrap. Check out the
-            examples below for how you can remix and restyle it to your liking.
+      <div className="p-5 mb-4 jumbo rounded-3">
+        <div className="overlay" aria-hidden="true"></div>
+        <div className="container-fluid py-5 content-over-jumbo">
+          <h1 className="display-5 fw-bold text-white">GameHub</h1>
+          <p className="col-md-8 fs-4 text-white">
+            La piattaforma che ti consiglia i migliori videogiochi e offre un
+            catalogo completo. Scopri suggerimenti personalizzati, recensioni
+            concise e offerte selezionate; filtra per piattaforma, genere e
+            prezzo, salva i preferiti e trova nuove proposte per arricchire la
+            tua collezione.
           </p>
-          <button class="btn btn-primary btn-lg" type="button">
-            Example button
-          </button>
         </div>
       </div>
     </>

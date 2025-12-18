@@ -9,7 +9,7 @@ body {
   color: white;
 }
 .card-img-overlay {
-  background-color: rgba(0, 0, 0, 0.506);
+  background-color: rgba(0, 0, 0, 0.734);
   transition: all 0.8s;
 }
 .spinner-border {
@@ -23,11 +23,26 @@ main {
   height: 800px;
 }
 .overlay {
-  background-color: #0c0e1278;
+  background-color: rgba(0, 0, 0, 0.6);
   position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 3;
+  top: 0;
+  left: 0;
+  z-index: 1;
   height: 100%;
   width: 100%;
+  pointer-events: none;
+}
+.jumbo {
+  position: relative;
+  background-image: url("./assets/Jumbo.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 800px;
+}
+.content-over-jumbo {
+  position: relative;
+  z-index: 2;
+}
+.cardCustom {
+  height: 200px;
 }

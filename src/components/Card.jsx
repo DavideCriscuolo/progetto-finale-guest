@@ -5,15 +5,16 @@ export default function Card({ game }) {
 
   return (
     <>
-      <div
-        className="col my-2"
-        onMouseEnter={() => setHover(game.id)}
-        onMouseLeave={() => setHover(null)}
-      >
-        <div key={game.id} className="card text-bg-dark h-100">
+      <div className="col my-2">
+        <div
+          key={game.id}
+          onMouseEnter={() => setHover(game.id)}
+          onMouseLeave={() => setHover(null)}
+          className="card text-bg-dark w-100 cardCustom"
+        >
           <img
             src={game.medias.map((media) => media.url)}
-            className="card-img h-100"
+            className="card-img  object-fit-cover h-100"
             alt="..."
           />
 
@@ -26,7 +27,12 @@ export default function Card({ game }) {
           >
             <h5 className="card-title">{game.title}</h5>
             <p className="card-text"> {game.plot.slice(0, 150)}...</p>
-            <Link to={`/game/${game.id}/${game.title}`}>Vail al Gioco</Link>
+            <Link
+              className="btn btn-danger"
+              to={`/game/${game.id}/${game.title}`}
+            >
+              Vail al Gioco
+            </Link>
           </div>
         </div>
       </div>

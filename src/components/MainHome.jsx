@@ -22,22 +22,11 @@ export default function MainHome() {
   return (
     <main>
       <div className="container">
-        <div className="text-white">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo
-            quis molestias aut quo obcaecati optio cumque atque, incidunt
-            beatae! Nisi reiciendis dignissimos rerum, assumenda a harum natus
-            tempora quia. Magni! Quisquam optio neque itaque rem similique sunt
-            deserunt maxime corrupti. Explicabo incidunt deserunt provident
-            veritatis quos expedita quo porro ipsam aspernatur officiis? Soluta
-            repudiandae eum amet ullam nam distinctio doloremque.
-          </p>
-        </div>
         <section>
           <div>
-            <h4>Best Buy {new Date().getFullYear()}</h4>
+            <h4>Best Buy {new Date().getFullYear()} meno di 20 euro</h4>
             <div>
-              <div className="row row-cols-6">
+              <div className="row row-cols-3">
                 {bestBuy.map((game) => {
                   return <Card key={game.id} game={game}></Card>;
                 })}

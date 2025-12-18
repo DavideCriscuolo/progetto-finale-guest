@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import defaultLayout from "./layout/defaultLayout";
 import AllGames from "./pages/AllGames";
 import GamePage from "./pages/GamePage";
+import PageNotF from "./pages/PageNotF";
 function App() {
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
             <Route path="/" element={<Home />}></Route>
             <Route path="/AllGames" element={<AllGames />}></Route>
             <Route path="/game/:id/:title" element={<GamePage />}></Route>
+            <Route path="/*" element={<PageNotF />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>
