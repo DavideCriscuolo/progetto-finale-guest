@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Card from "./Card";
+import { CardSkeletonGrid } from "./CardSkeleton";
 
 export default function MainHome() {
   const [bestBuy, setBestBuy] = useState([]);
@@ -11,12 +12,17 @@ export default function MainHome() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setBestBuy(data.data);
-        setLoading(false);
+        // Aggiungo un delay di 2 secondi per vedere lo skeleton
+        setTimeout(() => {
+          setBestBuy(data.data);
+          setLoading(false);
+        }, 2000);
       })
       .catch((err) => {
         console.log(err);
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
       });
   }
 
@@ -56,14 +62,7 @@ export default function MainHome() {
       <div className="container">
         <section>
           {loading ? (
-            <div className="loading-container d-flex justify-content-center align-items-center py-5">
-              <div className="text-center">
-                <div className="spinner-border text-success mb-3" role="status">
-                  <span className="visually-hidden">Caricamento...</span>
-                </div>
-                <p className="text-light opacity-75">Caricamento giochi...</p>
-              </div>
-            </div>
+            <CardSkeletonGrid count={3} />
           ) : bestBuy.length > 0 ? (
             <>
               <div className="section-header d-flex align-items-center mb-4">

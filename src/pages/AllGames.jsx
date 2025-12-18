@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Card from "../components/Card";
+import { CardSkeletonGrid } from "../components/CardSkeleton";
 
 export default function AllGames() {
   const [games, setGames] = useState([]);
@@ -13,12 +14,17 @@ export default function AllGames() {
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setGames(data.data);
-        setLoad(false);
+        // Aggiungo un delay di 2 secondi per vedere lo skeleton
+        setTimeout(() => {
+          setGames(data.data);
+          setLoad(false);
+        }, 1500);
       })
       .catch((err) => {
         console.log(err);
-        setLoad(false);
+        setTimeout(() => {
+          setLoad(false);
+        }, 1500);
       });
   }
 
@@ -66,20 +72,7 @@ export default function AllGames() {
         </div>
 
         {load ? (
-          <div className="loading-container d-flex justify-content-center align-items-center py-5">
-            <div className="text-center">
-              <div
-                className="spinner-border text-success mb-3"
-                role="status"
-                style={{ width: "3rem", height: "3rem" }}
-              >
-                <span className="visually-hidden">Caricamento...</span>
-              </div>
-              <p className="text-light opacity-75">
-                Caricamento del catalogo...
-              </p>
-            </div>
-          </div>
+          <CardSkeletonGrid count={9} />
         ) : (
           <>
             {/* Filters Section */}
