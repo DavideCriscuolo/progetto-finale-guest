@@ -32,9 +32,11 @@ export default function Card({ game }) {
           )}
 
           {/* Prezzo badge */}
-          {game.price && (
+          {game.price !== undefined && game.price !== null && (
             <div className="card-price-badge">
-              <span className="badge bg-success">{game.price}€</span>
+              <span className="badge bg-success">
+                {game.price === 0 ? "Gratis" : `${game.price}€`}
+              </span>
             </div>
           )}
         </div>

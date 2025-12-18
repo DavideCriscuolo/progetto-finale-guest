@@ -21,15 +21,20 @@ export default function GamePage() {
       fetch(urlRelated).then((r) => r.json()),
     ])
       .then(([gameRes, relatedRes]) => {
-        setGame(gameRes.data);
-        setRelated(relatedRes.data || []);
-        setLoad(false);
-        setRelatedLoad(false);
+        // Aggiungo un delay di 2 secondi per vedere lo skeleton
+        setTimeout(() => {
+          setGame(gameRes.data);
+          setRelated(relatedRes.data || []);
+          setLoad(false);
+          setRelatedLoad(false);
+        }, 2000);
       })
       .catch((err) => {
         console.error(err);
-        setLoad(false);
-        setRelatedLoad(false);
+        setTimeout(() => {
+          setLoad(false);
+          setRelatedLoad(false);
+        }, 2000);
       });
   }, [id]);
 
